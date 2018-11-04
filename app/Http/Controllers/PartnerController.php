@@ -20,8 +20,8 @@ class PartnerController extends Controller
     }
 
     public function attente() {
-        $guests = User::guests();
-        return view('admin.partners.index-demande', compact('guests'));
+        $partners = User::guests();
+        return view('admin.partners.index-demande', compact('partners'));
     }
 
     /**
@@ -51,7 +51,7 @@ class PartnerController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show(User $user)
     {
         //
     }
@@ -62,9 +62,12 @@ class PartnerController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $this->authorize('update', $id);
+
+
     }
 
     /**
@@ -74,9 +77,12 @@ class PartnerController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $this->authorize('update', $id);
+
+
     }
 
     /**
@@ -85,8 +91,31 @@ class PartnerController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $this->authorize('delete', $id);
+
+        if($user->delete()){
+            // $this->intervention->imageDelete($user->image);
+            return redirect()->back();
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
+    public function change($id){
+        $user = User::find($id);
+        if($user->role->slug === 'partner'){
+            $user->role_id = 3;
+
+        }else if($user->role->slug === 'guest'){
+            $user->role_id = 2;
+
+        }
+        if($user->save()){
+            return redirect()->back();
+        }
     }
 }

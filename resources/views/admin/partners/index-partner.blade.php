@@ -20,15 +20,25 @@
                         </div>
                         <div class="media-body">
                             <div class="clearfix">
-                                <p class="pull-right">
-                                    <a href="https://themequarry.com/theme/materialpro-material-bootstrap-4-admin-template-ASC6FWYG" class="btn btn-success btn-sm ad-click-event">
-                                        Edit
-                                    </a>
+                                <div class="pull-right">
+                                    @can('update',$partner)
+                                        <a href="https://themequarry.com/theme/materialpro-material-bootstrap-4-admin-template-ASC6FWYG " class="btn btn-warning btn-sm ad-click-event px-3">
+                                            Edit
+                                        </a>
+                                    @endcan
                                     <br>
-                                     <a href="https://themequarry.com/theme/materialpro-material-bootstrap-4-admin-template-ASC6FWYG" class="mt-2 btn btn-success btn-sm ad-click-event">
-                                        Delete
-                                    </a>
-                                </p>
+                                    @can('admin')
+                                        <form class="d-inline" action="{{Route('partner.destroy',['partner'=>$partner->id])}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                        <br>
+                                        <a href="{{route('change',['partner'=>$partner->id])}}" class="btn btn-success btn-sm ad-click-event px-3">
+                                            guest
+                                        </a>
+                                    @endcan
+                                </div>
 
                                 {{-- <h4 style="margin-top: 0">MaterialPro ─ $35</h4> --}}
 

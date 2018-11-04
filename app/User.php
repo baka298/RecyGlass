@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -36,5 +37,9 @@ class User extends Authenticatable
     public static function guests()
     {
        return $guests = User::where('role_id',3)->get();
+    }
+    public function isAdmin()
+    {
+        return Auth::user()->role->slug == "admin";
     }
 }

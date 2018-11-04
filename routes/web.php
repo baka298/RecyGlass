@@ -11,14 +11,25 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
-
-Route::redirect('/admin', '/home');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::redirect('/admin', '/home')->middleware('can:partner');
 
-Route::resource('/admin/partner', 'PartnerController');
-Route::get('admin/partner-attente', 'PartnerController@attente');
+Route::resource('/admin/partner', 'PartnerController')->middleware('can:partner');
+Route::get('admin/partner-attente', 'PartnerController@attente')->middleware('can:partner');
+Route::get('admin/partner-change/{partner}', 'PartnerController@change')->name('change')->middleware('can:admin');
+
+
+// if(Auth::user()->role_id === 3){
+    
+// }
+// else {
+    
+//     dd(Auth::user());
+    
+// }

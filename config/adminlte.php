@@ -108,16 +108,19 @@ return [
     */
 
     'menu' => [
-        'PARTENAIRES',
-        [
-            'text' => 'En attente',
-            'url'  => 'admin/partner',
-            'icon' => 'users'
-        ],
+        // 'PARTENAIRES',
         [
             'text' => 'Actuels',
+            'url'  => 'admin/partner',
+            'icon' => 'users',
+            'can' => 'partner'
+        ],
+        [
+            'text' => 'En attente',
             'url' => 'admin/partner-attente',
-            'icon' => 'users'
+            'icon' => 'users',
+            'can' => 'partner'
+
         ]
     ],
 
