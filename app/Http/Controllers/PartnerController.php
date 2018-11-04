@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Auth;   
+use Auth;
 use App\Role;
 use Illuminate\Http\Request;
 
@@ -20,7 +20,8 @@ class PartnerController extends Controller
         return view('admin.partners.index-partner', compact('partners'));
     }
 
-    public function attente() {
+    public function attente()
+    {
         $partners = User::guests();
         return view('admin.partners.index-demande', compact('partners'));
     }
@@ -95,31 +96,31 @@ class PartnerController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $this->authorize('delete', $id);
 
-        if($user->delete()){
+        if ($user->delete()) {
             // $this->intervention->imageDelete($user->image);
             return redirect()->back();
-        }
-        else{
+        } else {
             return redirect()->back();
         }
     }
 
-    public function change($id){
+    public function change($id)
+    {
         $user = User::find($id);
-        if($user->role->slug === 'partner'){
+        if ($user->role->slug === 'partner') {
             $user->role_id = 3;
 
-        }else if($user->role->slug === 'guest'){
+        } else if ($user->role->slug === 'guest') {
             $user->role_id = 2;
 
         }
-        if($user->save()){
+        if ($user->save()) {
             return redirect()->back();
         }
     }
-    public function profil(){
+    public function profil()
+    {
         $partner = Auth::user();
         return view('admin.partners.profil', compact('partner'));
     }

@@ -21,7 +21,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
+     */
 
     use RegistersUsers;
 
@@ -71,7 +71,7 @@ class RegisterController extends Controller
         $user->address = $request->address;
         $user->site = $request->site;
         $user->category = $request->category;
-        $user->image = $request->image->store('','image');
+        $user->image = $request->image->store('', 'image');
 
         $user->save();
         return view('home');
