@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Auth;   
 use App\Role;
 use Illuminate\Http\Request;
 
@@ -117,5 +118,9 @@ class PartnerController extends Controller
         if($user->save()){
             return redirect()->back();
         }
+    }
+    public function profil(){
+        $partner = Auth::user();
+        return view('admin.partners.profil', compact('partner'));
     }
 }

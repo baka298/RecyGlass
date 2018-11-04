@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1>Demandes de partenaires en attente</h1>
+    <h1>Mon profil</h1>
 @endsection
 
 @section('content')
-    <div class="row">
-    @foreach ($partners as $partner)
+     <div class="row">
+
         
         <div class="col-sm-12 col-md-6">
             <div class="box box-solid">
@@ -27,19 +27,7 @@
                                         </a>
                                     @endcan
                                     <br>
-                                    @can('admin')
-
-                                        <form class="d-inline" action="{{Route('partner.destroy',['partner'=>$partner->id])}}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn w-100 my-2 btn-danger">Delete</button>
-                                        </form>
-                                        <br>
-
-                                        <a href="{{route('change',['partner'=>$partner->id])}}" class="btn w-100 btn-success px-2 btn-sm ad-click-event">
-                                            partner
-                                        </a>
-                                    @endcan
+                                    
                                 </div>
 
                                 {{-- <h4 style="margin-top: 0">MaterialPro ─ $35</h4> --}}
@@ -55,6 +43,10 @@
                 </div>
             </div>
         </div>
-    @endforeach
+
+        
+
     </div>
+
+
 @endsection

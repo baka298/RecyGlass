@@ -108,12 +108,12 @@
             @endif
 
             <!-- Content Header (Page header) -->
-            <section class="content-header">
+            <section class="content-header mb-5">
                 @yield('content_header')
             </section>
 
             <!-- Main content -->
-            <section class="content">
+            <section class="content card-body bg-light box box-primary">
 
                 @yield('content')
 

@@ -15,6 +15,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('custom-register', 'CustomRegisterController@index')->name('custom-register');
+Route::post('custom-register/create', 'CustomRegisterController@customCreate')->name('customRegister');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -23,13 +25,7 @@ Route::redirect('/admin', '/home')->middleware('can:partner');
 Route::resource('/admin/partner', 'PartnerController')->middleware('can:partner');
 Route::get('admin/partner-attente', 'PartnerController@attente')->middleware('can:partner');
 Route::get('admin/partner-change/{partner}', 'PartnerController@change')->name('change')->middleware('can:admin');
+Route::get('admin/profil', 'PartnerController@profil')->name('profil')->middleware('can:partner');
 
 
-// if(Auth::user()->role_id === 3){
-    
-// }
-// else {
-    
-//     dd(Auth::user());
-    
-// }
+

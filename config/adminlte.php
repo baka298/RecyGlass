@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Recy Glass',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Recy</b>Glass',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>R</b>G',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
 
     'login_url' => 'login',
 
-    'register_url' => 'register',
+    'register_url' => 'custom-register',
 
     /*
     |--------------------------------------------------------------------------
@@ -113,14 +113,20 @@ return [
             'text' => 'Actuels',
             'url'  => 'admin/partner',
             'icon' => 'users',
-            'can' => 'partner'
+            'can' => 'admin'
         ],
         [
             'text' => 'En attente',
             'url' => 'admin/partner-attente',
             'icon' => 'users',
-            'can' => 'partner'
+            'can' => 'admin'
 
+        ],
+        [
+            'text' => 'Profil',
+            'url' => 'admin/profil',
+            'icon' => 'users',
+            'can' => 'partner'
         ]
     ],
 
