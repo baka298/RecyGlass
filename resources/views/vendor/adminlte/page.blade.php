@@ -113,7 +113,7 @@
             </section>
 
             <!-- Main content -->
-            <section class="content card-body bg-light box box-primary">
+            <section class="content card-body bg-light box box-success">
 
                 @yield('content')
 

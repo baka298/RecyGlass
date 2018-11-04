@@ -18,7 +18,7 @@
             <form action="{{route('customRegister')}}" method="post" enctype="multipart/form-data">
                 {!! csrf_field() !!}
 
-                <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
+                {{-- <div class="form-group has-feedback {{ $errors->has('name') ? 'has-error' : '' }}">
                     <input type="text" name="name" class="form-control" value="{{ old('name') }}"
                            placeholder="{{ trans('adminlte::adminlte.full_name') }}">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -27,7 +27,7 @@
                             <strong>{{ $errors->first('name') }}</strong>
                         </span>
                     @endif
-                </div>
+                </div> --}}
                     {{-- perso --}}
                 <div class="form-group has-feedback">
                     <input type="text" name="company" class="form-control" value="{{ old('company') }}"

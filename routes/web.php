@@ -9,14 +9,13 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('custom-register', 'CustomRegisterController@index')->name('custom-register');
 Route::post('custom-register/create', 'CustomRegisterController@customCreate')->name('customRegister');
+Route::get('/', 'FrontController@index');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

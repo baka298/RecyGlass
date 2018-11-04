@@ -41,7 +41,7 @@
                                 </div>
 
                                 {{-- <h4 style="margin-top: 0">MaterialPro ─ $35</h4> --}}
-
+                                <p>Email : {{$partner->email}}</p>
                                 <p>Adresse : {{$partner->address}}</p>
                                 <p>Catégorie : {{$partner->category}}</p>
                                 @if($partner->site)

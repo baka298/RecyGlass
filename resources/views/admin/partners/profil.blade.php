@@ -8,7 +8,7 @@
      <div class="row">
 
         
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-6 mx-auto">
             <div class="box box-solid">
                 <div class="box-body">
                     <h4 style="background-color:#f7f7f7; font-size: 18px; text-align: center; padding: 7px 10px; margin-top: 0;">
@@ -22,7 +22,7 @@
                             <div class="clearfix">
                                 <div class="pull-right">
                                     @can('update',$partner)
-                                        <a href="https://themequarry.com/theme/materialpro-material-bootstrap-4-admin-template-ASC6FWYG" class="btn btn-warning px-3 w-100 btn-sm ad-click-event">
+                                        <a href="https:blue//themequarry.com/theme/materialpro-material-bootstrap-4-admin-template-ASC6FWYG" class="btn btn-warning px-3 w-100 btn-sm ad-click-event">
                                             Edit
                                         </a>
                                     @endcan
@@ -31,7 +31,7 @@
                                 </div>
 
                                 {{-- <h4 style="margin-top: 0">MaterialPro ─ $35</h4> --}}
-
+                                <p>Email : {{$partner->email}}</p>
                                 <p>Adresse : {{$partner->address}}</p>
                                 <p>Catégorie : {{$partner->category}}</p>
                                 @if($partner->site)
